@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Contact Me!</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+    }
+
+    body {
+      background: linear-gradient(90deg, #BE8CEF 0%, rgba(61, 46, 232, 0.83) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      font-size:10px;
+      height: 100vh;
+      margin: -20px 0 50px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 5px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+          0 10px 10px rgba(0,0,0,0.22);
+      position: relative;
+      overflow: hidden;
+      width: 768px;
+      max-width: 100%;
+      min-height: 480px;
+      min-width:370px;
+    }
+
+    h2 {
+      font-size:2rem;
+      margin-bottom:1rem;
+    }
+    .form-container {
+      display:flex;
+    }
+
+    .left-container {
+      flex:1;
+      height:480px;
+      background-color:#00b4cf;
+    }
+    .right-container {
+      display:flex;
+      flex:1;
+      height:460px;
+      background-color: #ffffff;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .left-container {
+      display:flex;
+      flex:1;
+      height:480px;
+      justify-content:center;
+      align-items:center;
+        color:#ffffff;
+    }
+
+    .left-container p {
+      font-size:0.9rem;
+    }
+
+    .right-inner-container {
+      width:70%;
+      height:80%;
+      text-align:center;
+    }
+
+    .left-inner-container {
+      height:50%;
+      width:80%;
+      text-align:center;
+      line-height:22px;
+    }
+
+    input, textarea {
+      background-color: #eee;
+      border: none;
+      padding: 12px 15px;
+      margin: 8px 0;
+      width: 100%;
+      font-size:0.8rem;
+    }
+
+    input:focus, textarea:focus{
+      outline:1px solid #00b4cf;
+    }
+
+    button {
+      border-radius: 20px;
+      border: 1px solid #00b4cf;
+      background-color: #00b4cf;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 12px 45px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      cursor:pointer;
+    }
+
+    button:hover {
+      opacity:0.7;
+    }
+    @media only screen and (max-width: 600px) {
+      .left-container{
+        display: none;
+      }
+      .lg-view {
+        display:none;  
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
+      .sm-view {
+        display:none;  
+      }
+    }
+
+    form p {
+      text-align:left;
+    }
+    </style>
+  </head>
+  <body>
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container">
+      <div class="form-container">
+        <div class="left-container">
+          <div class="left-inner-container">
+            <h2>Let's Chat</h2>
+            <p>Whether you have a question, want to start a project or            simply want to connect.</p>
+            <br>
+            <p>Feel free to send me a message in the contact form</p>
+          </div>
+        </div>
+      <div class="right-container">
+        <div class="right-inner-container">
+          <form action="/" method='post'>
+            {% csrf_token %}
+            <h2 class="lg-view">Contact</h2>
+            <h2 class="sm-view">Let's Chat</h2>
+            <p>* Required</p>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <input type="text" id="name" name="name" placeholder="Name *"  required />
+            <input type="email" id="email" name="email" placeholder="Email *" required/>
+            <input type="phone" id="subject" name="subject" placeholder="Subject" />
+            <textarea rows="4" id="desc" name="desc" placeholder="Message"></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
