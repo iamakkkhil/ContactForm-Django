@@ -1,8 +1,8 @@
 # Contact Form using Django + Celery
 
-This is a contact form project where you can use in personal portfolio websites or anywhere where people will like to contact you.
+This is a contact form project, you can use in personal portfolio websites or anywhere where people will like to contact you.
 
-When you submit the form it will save the details of the person who tried contacting you inisde the database and also sends an email message both to the ower of contact form and person tried conatcting with a personalised message.
+When you submit the form it will save the details of the person who tried contacting you inside the database and also sends an email message both to the ower of contact form and person who tried conatcting with a personalised message.
 
 ## Tech stack:
 <p align="left">
@@ -24,7 +24,7 @@ When you submit the form it will save the details of the person who tried contac
    pip install -r requirements.txt
    ```
 
-2. Update your email address which will be used for sending an email in [settings.py](./PortfolioContact/settings.py) file.
+2. Update your email address in [settings.py](./PortfolioContact/settings.py) file which will be used for sending an email.
 
 3. Update [.env](./PortfolioContact/settings.py) file by saving your email's password into it.
 
